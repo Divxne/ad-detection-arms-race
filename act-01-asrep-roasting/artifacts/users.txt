@@ -1,0 +1,6 @@
+jdoe
+administrator
+krbtgt
+guest
+mmurphy
+asmith

@@ -1,0 +1,4 @@
+index=* host=DC01 EventCode=4768 earliest=-24h
+| search Pre_Authentication_Type=0
+| table _time, Account_Name, Client_Address, Ticket_Encryption_Type, Result_Code
+| sort _time
