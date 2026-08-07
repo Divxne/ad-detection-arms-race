@@ -1,0 +1,43 @@
+title: Service Ticket Requested By User Principal From Remote Host
+id: 9de53aac-1e37-4839-9885-bdd401630b49
+status: experimental
+description: |
+  Detects a user principal requesting a Kerberos service ticket over the network,
+  excluding machine account activity, loopback traffic, and TGT renewals.
+  TIER 3 (STRUCTURAL): Kerberoasting cannot proceed without a TGS-REQ for the
+  target SPN. Encryption downgrade, request pacing, and single-SPN targeting all
+  leave this event intact. In lab validation this rule matched 8/8 attack events
+  across five runs, including the AES variant that defeated Tier 1 and the paced
+  single-SPN variant that defeated Tier 2.
+  OPERATIONALISATION COST: in this lab the rule is viable as written because no
+  principal legitimately consumes any service - the baseline is 9 events over 24
+  hours, all machine-account loopback. In production, users request service
+  tickets constantly, and this rule is only usable with an allowlist derived from
+  an observed principal-to-service baseline. Building and maintaining that
+  baseline is sustained engineering work, not a one-line filter. This rule is
+  structural in what it keys on and expensive in what it requires.
+references:
+  - https://github.com/Divxne/ad-detection-arms-race
+  - https://attack.mitre.org/techniques/T1558/003/
+author: Divxne
+date: 2026-08-07
+tags:
+  - attack.credential-access
+  - attack.t1558.003
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4769
+  filter_machine_accounts:
+    TargetUserName|contains: '$@'
+  filter_local:
+    IpAddress|startswith: '::1'
+  filter_krbtgt:
+    ServiceName: 'krbtgt'
+  condition: selection and not 1 of filter_*
+falsepositives:
+  - All legitimate user service ticket activity. Requires a principal-to-service
+    baseline allowlist before deployment in any environment with real users.
+level: high

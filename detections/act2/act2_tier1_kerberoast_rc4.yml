@@ -1,0 +1,35 @@
+title: Kerberos Service Ticket Requested With RC4 Encryption
+id: 0e4bb540-4b6e-41ce-a7ec-37a65bbcad5b
+status: experimental
+description: |
+  Detects Kerberos TGS-REQ events (4769) served with RC4-HMAC encryption (0x17).
+  Kerberoasting tooling requests RC4 by default because the resulting ticket hash
+  cracks orders of magnitude faster than AES. In an environment where accounts
+  support AES, any RC4 service ticket request is anomalous.
+  TIER 1 (ARTIFACT): defeated by a single configuration change on either side.
+  An attacker may request AES voluntarily, or a defender hardening the account to
+  AES-only will silence this rule as a side effect of improving protection.
+references:
+  - https://github.com/Divxne/ad-detection-arms-race
+  - https://attack.mitre.org/techniques/T1558/003/
+author: Divxne
+date: 2026-08-07
+tags:
+  - attack.credential-access
+  - attack.t1558.003
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4769
+    TicketEncryptionType: '0x17'
+  filter_machine_accounts:
+    TargetUserName|contains: '$@'
+  filter_local:
+    IpAddress|startswith: '::1'
+  condition: selection and not 1 of filter_*
+falsepositives:
+  - Legacy services or accounts that do not support AES encryption types
+  - Domains at functional levels where RC4 remains a negotiated default
+level: medium

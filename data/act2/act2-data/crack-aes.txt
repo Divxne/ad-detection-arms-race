@@ -1,0 +1,63 @@
+hashcat (v7.1.2) starting
+
+Initializing bridges. Please be patient...Initialized bridgesInitializing backend runtimes. Please be patient...Initialized backend runtimesInitializing backend devices. Please be patient...Initialized backend devicesOpenCL API (OpenCL 3.0 PoCL 6.0+debian  Linux, None+Asserts, RELOC, SPIR-V, LLVM 18.1.8, SLEEF, POCL_DEBUG) - Platform #1 [The pocl project]
+============================================================================================================================================
+* Device #01: cpu--0x000, 2937/5874 MB (1024 MB allocatable), 4MCU
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+Minimum salt length supported by kernel: 0
+Maximum salt length supported by kernel: 256
+
+Counting lines in kerberoast-aes.hash. Please be patient...Counted lines in kerberoast-aes.hashParsed Hashes: 1/1 (100.00%)Parsed Hashes: 1/1 (100.00%)Sorting hashes. Please be patient...Sorted hashesRemoving duplicate hashes. Please be patient...Removed duplicate hashesSorting salts. Please be patient...Sorted saltsGenerating bitmap tables...Generated bitmap tablesHashes: 1 digests; 1 unique digests, 1 unique salts
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+Rules: 1
+
+Optimizers applied:
+* Zero-Byte
+* Not-Iterated
+* Single-Hash
+* Single-Salt
+* Slow-Hash-SIMD-LOOP
+
+Watchdog: Hardware monitoring interface not found on your system.
+Watchdog: Temperature abort trigger disabled.
+
+Initializing bridge salts. Please be patient...Initialized bridge saltsInitializing device kernels and memory. Please be patient...Initializing backend runtime for device #1. Please be patient...Initialized backend runtime for device #1Host memory allocated for this attack: 513 MB (5208 MB free)
+
+Initialized device kernels and memoryStarting self-test. Please be patient...Finished self-testDictionary cache hit:
+* Filename..: known.txt
+* Passwords.: 3
+* Bytes.....: 36
+* Keyspace..: 3
+
+Starting autotune. Please be patient...Finished autotune                                                          The wordlist or mask that you are using is too small.
+This means that hashcat cannot use the full parallel power of your device(s).
+Hashcat is expecting at least 264 base words but only got 1.1% of that.
+Unless you supply more work, your cracking speed will drop.
+For tips on supplying more work, see: https://hashcat.net/faq/morework
+
+                                                          [s]tatus [p]ause [b]ypass [c]heckpoint [f]inish [q]uit =>                                                           Approaching final keyspace - workload adjusted.
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [f]inish [q]uit =>                                                           $krb5tgs$17$svc-sql$LAB.LOCAL$e74a37f419fb7deeb5ba4678$1ee8599be42e2e4295f992e606ee18a36a9e6d07fb98244a074c72ebaedd81860fd8510a99b8a15ec84d484837b51a471ac84b51d8d7b15635a37c1016a38a992a57080f46633cbafd4bf6d1faefe271a04d33905f866806eb882f5de3bec70ba9ebc40341431741b6006491c1a31f19da0cc96b90da96c61fc41afe3c4c2fcc87bd0ed1f993d6a3da65d171236cff3bbb5c3e40bb3ed68ed02d947f2d2bd3c32c33e0d77c37c3f3d23c66d22aba62f8214b7d1dfb63c50c7e641509520a374ab5aca160dad7942d2b2abcb40fa7f8627845b827b09d6806f347a8c27bd7191ccf8f071d0dca6e8ea65e7a21f10bc36bc5f523cda2ee8406974c0393b038c6c9b38c5d394e5ddf9b44e02bf6c8f7f7ad524384a3d1af75c76c47ea2fc600e30c2e4bc62f41de1b42695f47884c262822e5783631b4cbed10d8aa7bb03624a1e5688ec934be4072dca142325b605c675b2c1c33f4309b45cbed93ae30903b7f73b09efaa2b6ea93abe06863f80a6d6c3e9c6dabbca303e9a264eb8fbc1c5ff3080f5fc29d5eb6abb837ef7068ac611b1443351c49253f7ff80d7c5a529c988d7a162a1afebf6f103b2e344d4b460de162bbdb25072601bfb7df31bce6eca8a8118298fc0206e36309c68d71d4d77c4a239dbfe559da31bd4cd7fc227196e8fc4c50e82b6823b3f009eb353a3d70b5f4b72cdc8102f4441a4009ab29f574dcefe4c2bacf0997265efca6e5b68f5ee85a2c3d7478efeac855a70d90b1fb420eaf652374fa884cf6aeec8cb1985b7af298781a58c7dfc583607a872e8288538def1f02c3f929e821d2d796b8262ccdfff50b5db2185cc0a6e19fa5cbaa49ac7662d0984e236b783131019fdaaf299ab1517e1241a20553dd2c3d023702663edd2423123125093dc1cfce5cee3fa86a288c2d0e7559cd86da7eb4878a05ae9232d37814df1e326331dafc90e610739eb17514ef7f2868a98e573adf0ebe0e2fa391a763985e52b765c24457d8a82a0daecadcaf641309884e1bd3835e5b1c3c8fdb50f5f408b0beb8e3d6869f16f8036ca37f22bc09543f3a7119f45ab14fb750db583f81edfc3597c21f6110575afc56df509989d431baa693eafa645b42a68fc4d5b40e95c914cb2b44745088098c6bcad8c12be8e1e8bc680aa6c99de45ac573d848381d0135beaa9a676f67c2bdaf38e887f6e9b836065e81ca08eb3b0845e02187f5d8c8fbd811cf6d7174b9d70a2c4a4284e8f87b80e07cd2b50b4da9efde6b04c2c4a8cac75212fe76554bf8718b2679eb9c2b1c6be57c755370d34fbd394e5a621a267e34a802477bcf166d2264e96a1760bbd1bb:Falcon2019!
+                                                          
+Session..........: hashcat
+Status...........: Cracked
+Hash.Mode........: 19600 (Kerberos 5, etype 17, TGS-REP)
+Hash.Target......: $krb5tgs$17$svc-sql$LAB.LOCAL$e74a37f419fb7deeb5ba4...bbd1bb
+Time.Started.....: Fri Aug  7 05:23:26 2026 (0 secs)
+Time.Estimated...: Fri Aug  7 05:23:26 2026 (0 secs)
+Kernel.Feature...: Pure Kernel (password length 0-256 bytes)
+Guess.Base.......: File (known.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#01........:      903 H/s (0.69ms) @ Accel:66 Loops:1024 Thr:1 Vec:4
+Recovered........: 1/1 (100.00%) Digests (total), 1/1 (100.00%) Digests (new)
+Progress.........: 3/3 (100.00%)
+Rejected.........: 0/3 (0.00%)
+Restore.Point....: 0/3 (0.00%)
+Restore.Sub.#01..: Salt:0 Amplifier:0-1 Iteration:3072-4095
+Candidate.Engine.: Device Generator
+Candidates.#01...: Falcon2019! -> Autumn2025!
+
+Started: Fri Aug  7 05:23:25 2026
+Stopped: Fri Aug  7 05:23:28 2026

@@ -1,0 +1,64 @@
+title: Kerberos Service Ticket Requested By User Account
+id: b37d669e-f0fb-4568-aa00-7b796e5052bb
+status: experimental
+description: |
+  Base rule. Selects TGS-REQ events (4769) originating from a user principal over
+  the network, excluding machine accounts and loopback traffic. Not intended to
+  alert on its own - it is the input to the correlation rule below.
+references:
+  - https://github.com/Divxne/ad-detection-arms-race
+author: Divxne
+date: 2026-08-07
+tags:
+  - attack.credential-access
+  - attack.t1558.003
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4769
+  filter_machine_accounts:
+    TargetUserName|contains: '$@'
+  filter_local:
+    IpAddress|startswith: '::1'
+  filter_krbtgt:
+    ServiceName: 'krbtgt'
+  condition: selection and not 1 of filter_*
+falsepositives:
+  - Expected. This rule matches all legitimate user service ticket activity.
+level: informational
+---
+title: Kerberoasting - Multiple Distinct Service Tickets Requested By One Principal
+id: 3632da26-7574-4f5d-8854-6ee8dacbefec
+status: experimental
+description: |
+  Detects a single principal requesting service tickets for three or more distinct
+  services within one minute - the signature of an SPN sweep rather than normal
+  service consumption.
+  TIER 2 (BEHAVIORAL): defeated by targeting a single SPN, or by spacing requests
+  beyond the aggregation window. Measured evasion cost in this environment was
+  zero: the attacker discarded three tickets they had no use for.
+  Threshold of 3 is derived from a lab with 4 SPN accounts and a near-zero
+  baseline. It is NOT a production value. See act-02 limitations.
+references:
+  - https://github.com/Divxne/ad-detection-arms-race
+author: Divxne
+date: 2026-08-07
+tags:
+  - attack.credential-access
+  - attack.t1558.003
+correlation:
+  type: value_count
+  rules:
+    - b37d669e-f0fb-4568-aa00-7b796e5052bb
+  group-by:
+    - TargetUserName
+  timespan: 1m
+  condition:
+    gte: 3
+    field: ServiceName
+falsepositives:
+  - Vulnerability scanners and asset inventory tools performing SPN enumeration
+  - Service accounts legitimately brokering connections to many backend services
+level: high

