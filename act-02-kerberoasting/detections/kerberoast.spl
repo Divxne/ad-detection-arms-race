@@ -1,0 +1,50 @@
+# Act 2 — Kerberoasting Detections (Splunk SPL)
+# Target: WinEventLog:Security, EventCode 4769
+# Validated against DC01 (lab.local), 2026-08-07
+#
+# Field names below are Splunk_TA_windows parsed names. The Sigma sources in
+# this directory emit raw Windows event field names and require a field-mapping
+# pipeline before deployment. See README §12, finding 5.
+
+
+# ---------------------------------------------------------------------------
+# TIER 1 — ARTIFACT
+# Keys on RC4-HMAC (0x17) service tickets. Kerberoasting tooling requests RC4
+# by default because the resulting hash cracks ~284x faster than AES.
+# Defeated by: any encryption configuration change, by either party.
+# ---------------------------------------------------------------------------
+
+index=main host=DC01 EventCode=4769 Ticket_Encryption_Type=0x17
+NOT Client_Address="::1"
+| table _time, Account_Name, Service_Name, Client_Address
+
+
+# ---------------------------------------------------------------------------
+# TIER 2 — BEHAVIOURAL
+# Keys on one principal requesting many distinct services in a short window.
+# Threshold of 3 derived from a 4-SPN lab against a near-zero baseline.
+# NOT a production value.
+# Defeated by: targeting a single SPN, or pacing beyond the aggregation window.
+# ---------------------------------------------------------------------------
+
+index=main host=DC01 EventCode=4769
+NOT Client_Address="::1"
+| bin _time span=1m
+| stats dc(Service_Name) as distinct_services, values(Service_Name) as services
+    by _time, Account_Name
+| where distinct_services >= 3
+
+
+# ---------------------------------------------------------------------------
+# TIER 3 — STRUCTURAL
+# Keys on the TGS-REQ itself: a user principal requesting a service ticket
+# over the network. Kerberoasting cannot occur without this event.
+# Viable as written only because no principal in this lab legitimately
+# consumes any service. Production deployment requires a principal-to-service
+# baseline allowlist.
+# ---------------------------------------------------------------------------
+
+index=main host=DC01 EventCode=4769
+NOT Client_Address="::1"
+NOT Account_Name="DC01$*"
+| table _time, Account_Name, Service_Name, Ticket_Encryption_Type, Client_Address

@@ -19,3 +19,10 @@ Single-DC lab domain (`lab.local`) on Windows Server 2022 Core, with
 Windows Security and Sysmon telemetry forwarded to Splunk. Attacks run
 from Kali on the same segment. All addresses and identifiers belong to
 purpose-built lab infrastructure.
+
+
+**[Act 2 — Kerberoasting](act-02-kerberoasting/)**
+Service ticket extraction against an SPN-registered account. Three
+detections at three durability tiers, each attacked in turn — including
+the hardening change that silences the artifact rule while making the
+crack 284× slower.
